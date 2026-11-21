@@ -1,0 +1,4 @@
+# API client bundle: Host half performs HTTP requests; dsh.client renders the UI.
+- insert:
+    - id: dsh-tree-new-bee-api-client
+      name: dsh-tree-new-bee-api-client
