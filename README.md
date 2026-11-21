@@ -5,7 +5,7 @@
 ## 插件信息
 
 - **包名**：`dsh-tree-new-bee-api-client`
-- **版本**：1.0.0
+- **版本**：1.0.3
 - **入口**：左侧栏「Tree New Bee 接口请求」
 - **类型**：Host + Client 双半部插件（bundle）
 
