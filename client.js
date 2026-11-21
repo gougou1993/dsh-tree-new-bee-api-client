@@ -3,7 +3,7 @@
  * Postman-style UI: request builder, collections, history and response viewer.
  */
 window.__ModuleLoader__.load({
-  id: 'dsh-tree-new-bee-api-client',
+  id: '@oakzhong/dsh-tree-new-bee-api-client',
   factory(require) {
     const React = require('react')
     const h = React.createElement
