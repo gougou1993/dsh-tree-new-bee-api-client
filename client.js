@@ -53,6 +53,10 @@ window.__ModuleLoader__.load({
       variables: '变量', variable: '变量名', noEnv: '暂无环境。新建环境后可设置专属变量。',
       noEnvSelected: '未选择环境', useVariable: '用 {{变量名}} 引用，如 {{baseUrl}}',
       confirmDelEnv: '确定删除该环境？', envSaved: '环境已保存', applyEnv: '变量将在发送时替换 {{key}}',
+      import: '导入', export: '导出', exportAll: '导出全部数据', exportCollection: '仅导出集合',
+      importOk: '导入成功：{summary}', importFail: '导入失败：文件格式不正确',
+      confirmImport: '导入将合并到现有数据，继续？', nothingToExport: '没有可导出的数据',
+      exported: '已导出 {summary}',
       commonHeaders: '添加常用请求头', selectHeader: '选择请求头…',
       addSelected: '添加选中', close: '收起', selectedN: '已选 {n} 项', clear: '清空选择',
       selectAll: '全选', unselectAll: '取消全选', customHeader: '自定义请求头',
@@ -78,6 +82,10 @@ window.__ModuleLoader__.load({
       variables: 'Variables', variable: 'Variable', noEnv: 'No environments. Create one to set scoped variables.',
       noEnvSelected: 'No environment selected', useVariable: 'Use {{key}} to reference, e.g. {{baseUrl}}',
       confirmDelEnv: 'Delete this environment?', envSaved: 'Environment saved', applyEnv: 'Variables replace {{key}} when sending',
+      import: 'Import', export: 'Export', exportAll: 'Export everything', exportCollection: 'Export collection only',
+      importOk: 'Imported: {summary}', importFail: 'Import failed: invalid file format',
+      confirmImport: 'Import will merge into existing data. Continue?', nothingToExport: 'Nothing to export',
+      exported: 'Exported {summary}',
       commonHeaders: 'Add common header', selectHeader: 'Select a header…',
       addSelected: 'Add selected', close: 'Close', selectedN: '{n} selected', clear: 'Clear selection',
       selectAll: 'Select all', unselectAll: 'Deselect all', customHeader: 'Custom header',
@@ -138,6 +146,7 @@ window.__ModuleLoader__.load({
       const [editingNode, setEditingNode] = useState('')
       const [editValue, setEditValue] = useState('')
       const [collectionQuery, setCollectionQuery] = useState('')
+      const fileRef = useRef(null)
       const [history, setHistory] = useState(() => readJSON(HISTORY_KEY, []))
       const [saveName, setSaveName] = useState('')
       const [pretty, setPretty] = useState(true)
@@ -261,6 +270,19 @@ window.__ModuleLoader__.load({
       const countRequests = useCallback((n) => {
         if (!n || n.type !== 'folder') return 0
         return (n.children || []).reduce((s, c) => s + (c.type === 'folder' ? countRequests(c) : 1), 0)
+      }, [])
+
+      // Count every node (folders + requests) in a collection tree.
+      const countAllNodes = useCallback((nodes) => {
+        let total = 0
+        const walk = (list) => {
+          for (const n of list || []) {
+            total += 1
+            if (n.type === 'folder') walk(n.children || [])
+          }
+        }
+        walk(nodes)
+        return total
       }, [])
 
       const addFolder = useCallback(() => {
@@ -467,6 +489,95 @@ window.__ModuleLoader__.load({
 
       const statusColor = resp && resp.status >= 200 && resp.status < 300 ? 'dshApi-ok' : (resp && resp.status >= 400 ? 'dshApi-bad' : '')
 
+      // ---- import / export -------------------------------------------------
+      // Export writes a portable JSON document; import merges it back, regenerating
+      // ids so imported entries never collide with existing ones.
+      const buildExport = useCallback((scope) => {
+        const doc = {
+          app: 'dsh-tree-new-bee-api-client',
+          version: 2,
+          exportedAt: new Date().toISOString(),
+          scope,
+        }
+        if (scope === 'collection') {
+          doc.collection = collection
+        } else {
+          doc.collection = collection
+          doc.environments = environments
+          doc.customHeaders = customHeaders
+        }
+        return doc
+      }, [collection, environments, customHeaders])
+
+      const exportData = useCallback((scope) => {
+        const doc = buildExport(scope)
+        const hasCollection = Array.isArray(doc.collection) && doc.collection.length > 0
+        const hasEnvs = Array.isArray(doc.environments) && doc.environments.length > 0
+        const hasHeaders = Array.isArray(doc.customHeaders) && doc.customHeaders.length > 0
+        if (scope === 'collection' ? !hasCollection : (!hasCollection && !hasEnvs && !hasHeaders)) {
+          setErr(t('nothingToExport')); return
+        }
+        const summary = scope === 'collection'
+          ? `${fmt(t('collection'))} ${countAllNodes(doc.collection)}`
+          : `${fmt(t('collection'))} ${countAllNodes(doc.collection)} / ${fmt(t('envs'))} ${(doc.environments || []).length} / ${fmt(t('commonHeaders'))} ${(doc.customHeaders || []).length}`
+        try {
+          const blob = new Blob([JSON.stringify(doc, null, 2)], { type: 'application/json;charset=utf-8' })
+          const url = URL.createObjectURL(blob)
+          const a = document.createElement('a')
+          a.href = url
+          a.download = scope === 'collection' ? 'api-collection.json' : 'api-workspace.json'
+          document.body.appendChild(a); a.click(); a.remove()
+          setTimeout(() => URL.revokeObjectURL(url), 1000)
+          setErr(fmt(t('exported'), { summary }))
+        } catch (e) { setErr(e.message) }
+      }, [buildExport])
+
+      const importData = useCallback(async (e) => {
+        const file = e.target.files && e.target.files[0]
+        if (!file) return
+        try {
+          const text = await file.text()
+          const doc = JSON.parse(text)
+          const coll = Array.isArray(doc) ? doc : (Array.isArray(doc.collection) ? doc.collection : null)
+          const envs = doc && Array.isArray(doc.environments) ? doc.environments : null
+          const heads = doc && Array.isArray(doc.customHeaders) ? doc.customHeaders : null
+          if (!coll && !envs && !heads) { setErr(t('importFail')); return }
+          if (!window.confirm(t('confirmImport'))) { e.target.value = ''; return }
+
+          let nReq = 0
+          const reId = (nodes) => (nodes || []).map((n) => {
+            if (n.type === 'folder') return { ...n, id: makeId(), children: reId(n.children || []) }
+            nReq += 1
+            return { ...n, id: makeId() }
+          })
+          const parts = []
+          if (coll) {
+            setCollection((prev) => [...prev, ...reId(coll)])
+            parts.push(`${fmt(t('collection'))} ${nReq}`)
+          }
+          if (envs) {
+            const cleanEnvs = envs.filter((x) => x && x.name).map((x) => ({ ...x, id: makeId(), variables: Array.isArray(x.variables) ? x.variables : [] }))
+            setEnvironments((prev) => [...prev, ...cleanEnvs])
+            parts.push(`${fmt(t('envs'))} ${cleanEnvs.length}`)
+          }
+          if (heads) {
+            const cleanHeads = heads.filter((x) => x && x.key).map((x) => ({ key: String(x.key), value: x.value || '', desc: x.desc || '' }))
+            setCustomHeaders((prev) => {
+              const merged = prev.slice()
+              for (const item of cleanHeads) {
+                const i = merged.findIndex((m) => m.key.toLowerCase() === item.key.toLowerCase())
+                if (i >= 0) merged[i] = item
+                else merged.push(item)
+              }
+              return merged
+            })
+            parts.push(`${fmt(t('commonHeaders'))} ${cleanHeads.length}`)
+          }
+          setErr(fmt(t('importOk'), { summary: parts.join(' / ') }))
+        } catch (_) { setErr(t('importFail')) }
+        e.target.value = ''
+      }, [])
+
       const goBack = useCallback(() => {
         const layout = ctx && ctx.layout
         if (!layout || typeof layout.selectPanel !== 'function') return
@@ -483,8 +594,13 @@ window.__ModuleLoader__.load({
             h('div', { className: 'dshApi-title' }, t('title')),
             h('div', { className: 'dshApi-sub' }, t('subtitle'))
           ),
-          h('button', { type: 'button', className: 'dshApi-back', onClick: goBack }, '‹ ' + t('back'))
+          h('div', { className: 'dshApi-headActions' },
+            h('button', { type: 'button', className: 'dshApi-back', title: t('exportAll'), onClick: () => exportData('all') }, t('export')),
+            h('button', { type: 'button', className: 'dshApi-back', title: t('import'), onClick: () => fileRef.current && fileRef.current.click() }, t('import')),
+            h('button', { type: 'button', className: 'dshApi-back', onClick: goBack }, '‹ ' + t('back'))
+          )
         ),
+        h('input', { ref: fileRef, type: 'file', accept: '.json,application/json', style: { display: 'none' }, onChange: importData }),
         h('div', { className: 'dshApi-envBar' },
           h('span', { className: 'dshApi-envIcon' }, '◈'),
           h('span', null, t('environment') + '：'),
@@ -713,6 +829,7 @@ window.__ModuleLoader__.load({
 .dshApi-title{font-size:20px;font-weight:700;line-height:1.3}
 .dshApi-sub{font-size:12px;color:var(--dsw-alias-label-secondary);margin-top:3px}
 .dshApi-back{display:inline-flex;align-items:center;border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-1);color:var(--dsw-alias-label-primary);font-size:12px;padding:5px 11px;border-radius:8px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.dshApi-headActions{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .dshApi-cols{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:12px;flex:1 1 auto;min-height:0}
 .dshApi-col{display:flex;flex-direction:column;gap:10px;min-height:0;overflow:hidden}
 .dshApi-side{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;background:var(--dsw-alias-bg-layer-1);padding:10px}

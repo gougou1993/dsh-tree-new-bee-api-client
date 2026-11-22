@@ -5,7 +5,7 @@ A Postman-style HTTP API testing plugin that runs inside DSH (DeepSeek Harness).
 ## Plugin Info
 
 - **Package**: `@oakzhong/dsh-tree-new-bee-api-client` (plugin ID `dsh-tree-new-bee-api-client`)
-- **Version**: 1.0.3
+- **Version**: 1.1.0
 - **Entry**: Sidebar "Tree New Bee API Client"
 - **Type**: Host + Client dual-half plugin (bundle)
 
@@ -56,7 +56,11 @@ A Postman-style HTTP API testing plugin that runs inside DSH (DeepSeek Harness).
 - **Multi-select**: select all / deselect all, insert several at once with automatic deduplication and empty-row filling
 - **Custom headers**: add your own common headers (name / default value / description), persisted and deletable
 
-### 6. History
+### 6. Import / Export
+- **Export**: download the whole workspace (collection tree, environments, custom headers) or just the collection as a portable JSON document
+- **Import**: merge a previously exported JSON file back in; every folder and request gets a freshly generated id so imports never collide with existing entries, environments are appended, and custom headers merge by key (same key overwrites)
+- Both actions live in the panel header next to **Back**
+### 7. History
 - The most recent 100 requests (status, time, URL, errors); click to restore the full request snapshot
 - Clear history with one click
 
