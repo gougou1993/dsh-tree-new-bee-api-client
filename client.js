@@ -40,15 +40,29 @@ window.__ModuleLoader__.load({
     const zh = {
       title: 'Tree New Bee 接口请求', subtitle: '类 Postman 的接口调试工具：请求构造、集合树、环境变量、常用头与历史记录。',
       collection: '集合', history: '历史', save: '保存请求', saved: '已保存',
+      log: '日志', logReq: '请求', logResp: '响应', logTime: '时间', logStatus: '状态', logDuration: '耗时',
+      logHeaders: '请求头', logBody: '请求体', logRespBody: '响应体', logRespHeaders: '响应头',
+      logMethod: '方法', logUrl: 'URL', logClear: '清空日志', logEmpty: '暂无日志记录',
+      logReqTab: '请求日志', logRespTab: '返回日志', logCopy: '复制', logCopied: '已复制',
+      logNoBody: '(无请求体)', logNoRespBody: '(无响应体)', logSearch: '搜索日志 (URL/方法/状态)',
+      historySearch: '搜索历史 (URL/方法)', bodyFile: '文件', bodyFileChoose: '选择文件', bodyFileNone: '未选择文件', bodyFileInfo: '{name} ({size})', uploadFail: '读取文件失败',
       name: '请求名称', url: '请求地址', send: '发送', sending: '发送中…',
       params: 'Params', headers: 'Headers', body: 'Body', authorize: '授权',
+      bodyMode: 'Body 类型', bodyModeHint: '选择类型会自动设置 Content-Type 请求头', bodyForm: '表单', bodyRaw: '原文', rawPlaceholder: '输入原始请求体内容…',
+      bodyNone: '无', bodyFormData: 'form-data', bodyUrlencoded: 'x-www-form-urlencoded', bodyBinary: '二进制文件',
+      rawSubtype: '格式', bodyTypeText: '文本', bodyTypeFile: '文件', addFile: '添加文件',
+      bodyFiledName: '字段名', bodyFileFieldHint: '行类型：文本或文件',
       key: '键', value: '值', addRow: '添加一行', remove: '删除',
       response: '响应', status: '状态', time: '耗时', size: '大小',
       pretty: '格式化 JSON', raw: '原始', respHeaders: '响应头',
       noResponse: '发送请求后在此查看响应。', noCollection: '暂无保存的请求。',
       noHistory: '暂无历史记录。', confirmDel: '确定删除？',
-      tip: 'Params 会自动拼到 URL；Body 用于 POST/PUT/PATCH。支持 http/https。',
       back: '返回', timeout: '超时(秒)', clearHistory: '清空历史',
+      preRequest: '预请求脚本', tests: '测试脚本', testResults: '测试结果',
+      scriptHint: 'Pre-request 发送前运行；Tests 响应后运行。可用 pm.environment.set / pm.variables.set / pm.test / pm.expect',
+      scriptRun: '运行', testPassed: '通过', testFailed: '失败', testTotal: '{n} 项断言',
+      testAllPass: '全部通过 ({n})', testSomeFail: '{p} 通过 / {f} 失败', noTests: '没有测试断言',
+      scriptError: '脚本错误', scriptSetVar: '设置变量', scriptTemplate: '模板', scriptInsert: '插入模板', scriptChoose: '选择模板…',
       environment: '环境', envs: '环境', newEnv: '新建环境', envName: '环境名称',
       variables: '变量', variable: '变量名', noEnv: '暂无环境。新建环境后可设置专属变量。',
       noEnvSelected: '未选择环境', useVariable: '用 {{变量名}} 引用，如 {{baseUrl}}',
@@ -65,19 +79,41 @@ window.__ModuleLoader__.load({
       searchCollection: '搜索集合…', noMatches: '没有匹配的文件夹或请求。',
       newFolder: '新建文件夹', folderName: '文件夹名称', confirmDelFolder: '确定删除该文件夹及其内容？',
       moveTo: '移动到', root: '根目录', saveTo: '保存到', rename: '双击重命名',
+      swaggerImport: '导入 Swagger', swaggerTitle: '从 Swagger/OpenAPI 导入',
+      swaggerHint: '粘贴 Swagger 2.0 / OpenAPI 3.x 的 JSON，或填写 URL 拉取',
+      swaggerUrl: '文档 URL (可选)', swaggerJson: 'JSON 内容', swaggerJsonPlaceholder: '粘贴 swagger.json / openapi.json 内容…',
+      swaggerFetch: '拉取', swaggerFetching: '拉取中…', swaggerDoImport: '导入为集合',
+      swaggerBaseUrl: '生成 URL 的 baseUrl (可选)', swaggerBaseHint: '留空用文档 servers/host，或填 {{baseUrl}}',
+      swaggerTarget: '导入到（根集合）', swaggerTargetRoot: '根目录（顶层）',
+      swaggerOk: '导入成功：{n} 个请求 / {g} 个分组', swaggerFail: '导入失败：{msg}',
+      swaggerNoPaths: '未找到 paths 定义', swaggerPasteOrUrl: '请粘贴 JSON 或填写 URL',
     }
     const en = {
       title: 'Tree New Bee API Client', subtitle: 'Postman-style API testing: request builder, collection tree, environments, common headers and history.',
       collection: 'Collection', history: 'History', save: 'Save request', saved: 'Saved',
+      log: 'Log', logReq: 'Request', logResp: 'Response', logTime: 'Time', logStatus: 'Status', logDuration: 'Duration',
+      logHeaders: 'Request headers', logBody: 'Request body', logRespBody: 'Response body', logRespHeaders: 'Response headers',
+      logMethod: 'Method', logUrl: 'URL', logClear: 'Clear log', logEmpty: 'No log entries',
+      logReqTab: 'Request log', logRespTab: 'Response log', logCopy: 'Copy', logCopied: 'Copied',
+      logNoBody: '(no request body)', logNoRespBody: '(no response body)', logSearch: 'Search logs (URL/method/status)',
+      historySearch: 'Search history (URL/method)', bodyFile: 'File', bodyFileChoose: 'Choose file', bodyFileNone: 'No file chosen', bodyFileInfo: '{name} ({size})', uploadFail: 'Failed to read file',
       name: 'Request name', url: 'Request URL', send: 'Send', sending: 'Sending…',
       params: 'Params', headers: 'Headers', body: 'Body', authorize: 'Auth',
+      bodyMode: 'Body type', bodyModeHint: 'Choosing a type auto-sets the Content-Type header', bodyForm: 'Form', bodyRaw: 'Raw', rawPlaceholder: 'Enter raw body…',
+      bodyNone: 'none', bodyFormData: 'form-data', bodyUrlencoded: 'x-www-form-urlencoded', bodyBinary: 'binary',
+      rawSubtype: 'Format', bodyTypeText: 'Text', bodyTypeFile: 'File', addFile: 'Add file',
+      bodyFiledName: 'Field name', bodyFileFieldHint: 'Row type: text or file',
       key: 'Key', value: 'Value', addRow: 'Add row', remove: 'Remove',
       response: 'Response', status: 'Status', time: 'Time', size: 'Size',
       pretty: 'Pretty JSON', raw: 'Raw', respHeaders: 'Response headers',
       noResponse: 'Send a request to see the response here.', noCollection: 'No saved requests.',
       noHistory: 'No history yet.', confirmDel: 'Delete this?',
-      tip: 'Params are appended to the URL; Body is used for POST/PUT/PATCH. http/https supported.',
       back: 'Back', timeout: 'Timeout (s)', clearHistory: 'Clear history',
+      preRequest: 'Pre-request Script', tests: 'Tests', testResults: 'Test Results',
+      scriptHint: 'Pre-request runs before send; Tests run after response. Use pm.environment.set / pm.variables.set / pm.test / pm.expect',
+      scriptRun: 'Run', testPassed: 'Pass', testFailed: 'Fail', testTotal: '{n} assertions',
+      testAllPass: 'All passed ({n})', testSomeFail: '{p} passed / {f} failed', noTests: 'No test assertions',
+      scriptError: 'Script error', scriptSetVar: 'Set variable', scriptTemplate: 'Template', scriptInsert: 'Insert', scriptChoose: 'Choose a template…',
       environment: 'Environment', envs: 'Environments', newEnv: 'New environment', envName: 'Environment name',
       variables: 'Variables', variable: 'Variable', noEnv: 'No environments. Create one to set scoped variables.',
       noEnvSelected: 'No environment selected', useVariable: 'Use {{key}} to reference, e.g. {{baseUrl}}',
@@ -94,12 +130,286 @@ window.__ModuleLoader__.load({
       searchCollection: 'Search collection…', noMatches: 'No matching folders or requests.',
       newFolder: 'New folder', folderName: 'Folder name', confirmDelFolder: 'Delete this folder and its contents?',
       moveTo: 'Move to', root: 'Root', saveTo: 'Save to', rename: 'Double-click to rename',
+      swaggerImport: 'Swagger import', swaggerTitle: 'Import from Swagger/OpenAPI',
+      swaggerHint: 'Paste Swagger 2.0 / OpenAPI 3.x JSON, or provide a URL to fetch',
+      swaggerUrl: 'Document URL (optional)', swaggerJson: 'JSON content', swaggerJsonPlaceholder: 'Paste swagger.json / openapi.json content…',
+      swaggerFetch: 'Fetch', swaggerFetching: 'Fetching…', swaggerDoImport: 'Import as collection',
+      swaggerBaseUrl: 'baseUrl for generated URLs (optional)', swaggerBaseHint: 'Leave blank to use servers/host, or use {{baseUrl}}',
+      swaggerTarget: 'Import into (root collection)', swaggerTargetRoot: 'Root (top level)',
+      swaggerOk: 'Imported: {n} requests / {g} groups', swaggerFail: 'Import failed: {msg}',
+      swaggerNoPaths: 'No paths found', swaggerPasteOrUrl: 'Paste JSON or provide a URL',
     }
     let t = (k) => (zh[k] || k)
     const fmt = (s, v) => String(s || '').replace(/\{(\w+)\}/g, (_, k) => (v && v[k] != null ? v[k] : ''))
     function readJSON(key, fb) { try { const r = window.localStorage.getItem(key); return r ? JSON.parse(r) : fb } catch (_) { return fb } }
     function writeJSON(key, v) { try { window.localStorage.setItem(key, JSON.stringify(v)) } catch (_) {} }
     function makeId() { return 'r-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7) }
+    // Built-in script templates (Postman-style snippets) for quick insertion.
+    const SCRIPT_TEMPLATES = {
+      pre: [
+        {
+          name: '设置环境变量',
+          code: '// 设置环境变量，可在 URL/Params/Headers/Body 中用 {{token}} 引用\npm.environment.set("token", "your-token-here");',
+        },
+        {
+          name: '设置时间戳变量',
+          code: '// 生成当前时间戳，用于签名/防重放\npm.environment.set("ts", String(Date.now()));\npm.environment.set("date", new Date().toISOString());',
+        },
+        {
+          name: '生成随机字符串',
+          code: '// 生成随机字符串，可用作请求 ID / nonce\npm.variables.set("nonce", Math.random().toString(36).slice(2));',
+        },
+        {
+          name: '读取并递增计数器',
+          code: '// 从变量读取计数并 +1，写回（适合自增 ID 场景）\nvar n = Number(pm.variables.get("counter") || 0) + 1;\npm.variables.set("counter", n);',
+        },
+      ],
+      tests: [
+        {
+          name: '状态码为 200',
+          code: 'pm.test("Status code is 200", function () {\n  pm.expect(response.status).to.eql(200);\n});',
+        },
+        {
+          name: 'JSON 响应断言',
+          code: 'pm.test("Response is JSON with ok=true", function () {\n  var data = JSON.parse(response.body);\n  pm.expect(data).to.have.property("ok");\n  pm.expect(data.ok).to.be.true();\n});',
+        },
+        {
+          name: '响应时间小于 2 秒',
+          code: 'pm.test("Response time < 2000ms", function () {\n  pm.expect(response.timeMs < 2000).to.be.true();\n});',
+        },
+        {
+          name: '存在指定响应头',
+          code: 'pm.test("Has Content-Type header", function () {\n  pm.expect(response.headers["content-type"] || response.headers["Content-Type"]).to.be.ok();\n});',
+        },
+      ],
+    }
+
+    // Replace {{name}} placeholders using the given variable map.
+    function resolveWith(s, map) {
+      if (!s || typeof s !== 'string' || !map || !Object.keys(map).length) return s
+      return String(s).replace(/\{\{\s*([\w.\-]+)\s*\}\}/g, (m, k) => (k in map ? String(map[k]) : m))
+    }
+
+    // Run a user script in a restricted Function scope with a small Postman-like `pm` API.
+    // Returns { vars: {name:value}, tests: [{name, passed, error}], error }.
+    function runScript(code, ctx) {
+      const out = { vars: {}, tests: [], error: '' }
+      if (!code || !String(code).trim()) return out
+      const pm = {
+        environment: {
+          get: (name) => (ctx.env && ctx.env[name] != null ? ctx.env[name] : ''),
+          set: (name, value) => { out.vars[name] = value == null ? '' : String(value) },
+        },
+        variables: {
+          get: (name) => (ctx.vars && ctx.vars[name] != null ? ctx.vars[name] : ''),
+          set: (name, value) => { out.vars[name] = value == null ? '' : String(value) },
+        },
+        test: (name, fn) => {
+          try { fn(); out.tests.push({ name: String(name), passed: true, error: '' }) }
+          catch (e) { out.tests.push({ name: String(name), passed: false, error: (e && e.message) || String(e) }) }
+        },
+        expect: (actual) => ({
+          to: {
+            eql: (expected) => { if (actual !== expected) throw new Error('expected ' + JSON.stringify(expected) + ' but got ' + JSON.stringify(actual)) },
+            equal: (expected) => { if (actual != expected) throw new Error('expected ' + JSON.stringify(expected) + ' but got ' + JSON.stringify(actual)) },
+            be: {
+              ok: () => { if (!actual) throw new Error('expected truthy but got ' + JSON.stringify(actual)) },
+              true: () => { if (actual !== true) throw new Error('expected true but got ' + JSON.stringify(actual)) },
+              false: () => { if (actual !== false) throw new Error('expected false but got ' + JSON.stringify(actual)) },
+            },
+            have: {
+              property: (key) => { if (!actual || !(key in actual)) throw new Error('expected property ' + key) },
+            },
+          },
+          toBe: (expected) => { if (actual !== expected) throw new Error('expected ' + JSON.stringify(expected) + ' but got ' + JSON.stringify(actual)) },
+        }),
+      }
+      const response = ctx.response || null
+      try {
+        // eslint-disable-next-line no-new-func
+        const fn = new Function('pm', 'response', '"use strict";\n' + code)
+        fn(pm, response)
+      } catch (e) { out.error = (e && e.message) || String(e) }
+      return out
+    }
+
+    function copyText(text) {
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text); return }
+        const ta = document.createElement('textarea')
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0'
+        document.body.appendChild(ta); ta.select()
+        try { document.execCommand('copy') } catch (_) {}
+        ta.remove()
+      } catch (_) {}
+    }
+    // Minimal object -> XML serializer for Swagger examples without a provided XML sample.
+    function simpleToXml(obj, root) {
+      root = root || 'root'
+      if (obj === null || obj === undefined) return '<' + root + '/>'
+      if (typeof obj !== 'object') return '<' + root + '>' + String(obj) + '</' + root + '>'
+      if (Array.isArray(obj)) return obj.map((x) => simpleToXml(x, 'item')).join('\n')
+      return Object.keys(obj).map((k) => '<' + k + '>' + (obj[k] && typeof obj[k] === 'object' ? '\n' + simpleToXml(obj[k], k) + '\n' : String(obj[k])) + '</' + k + '>').join('\n')
+    }
+    // Parse a Swagger 2.0 / OpenAPI 3.x document into collection folders + request nodes.
+    // Returns { nodes, count, groups } or throws a human-readable error.
+    function parseSwagger(doc, baseUrlOverride) {
+      if (!doc || typeof doc !== 'object') throw new Error('invalid document')
+      const paths = doc.paths
+      if (!paths || typeof paths !== 'object') throw new Error('no paths')
+      const isV3 = Boolean(doc.openapi) || (!doc.swagger && Boolean(doc.servers))
+      // Determine a base URL.
+      let base = ''
+      if (baseUrlOverride && String(baseUrlOverride).trim()) {
+        base = String(baseUrlOverride).trim()
+      } else if (isV3 && Array.isArray(doc.servers) && doc.servers[0] && doc.servers[0].url) {
+        base = String(doc.servers[0].url)
+      } else if (!isV3 && doc.host) {
+        const scheme = (Array.isArray(doc.schemes) && doc.schemes[0]) || 'https'
+        base = scheme + '://' + doc.host + (doc.basePath || '')
+      } else if (!isV3 && doc.basePath) {
+        base = String(doc.basePath)
+      }
+      base = base.replace(/\/+$/, '')
+      const joinUrl = (path) => {
+        const p = String(path || '').replace(/\{([^}]+)\}/g, ':$1')
+        if (!base) return p
+        if (/^https?:\/\//i.test(base)) return base + (p.startsWith('/') ? p : '/' + p)
+        return base + (p.startsWith('/') ? p : '/' + p)
+      }
+      const methods = ['get', 'post', 'put', 'patch', 'delete', 'head', 'options', 'trace']
+      const byTag = {}
+      let count = 0
+      for (const pathKey of Object.keys(paths)) {
+        const item = paths[pathKey]
+        if (!item || typeof item !== 'object') continue
+        for (const method of methods) {
+          const op = item[method]
+          if (!op || typeof op !== 'object') continue
+          const tags = Array.isArray(op.tags) && op.tags.length ? op.tags : ['default']
+          const tag = String(tags[0] || 'default')
+          if (!byTag[tag]) byTag[tag] = []
+          // Build query params (v2 'query', v3 'query').
+          const params = []
+          const headers = []
+          const paramExample = (pa) => {
+            const schema = pa.schema || {}
+            if (pa.example != null) return pa.example
+            if (schema.example != null) return schema.example
+            if (pa.default != null) return pa.default
+            if (schema.default != null) return schema.default
+            if (Array.isArray(schema['enum']) && schema['enum'].length) return schema['enum'][0]
+            return ''
+          }
+          const addParam = (pa, target) => {
+            if (!pa || typeof pa !== 'object') return
+            const name = pa.name || ''
+            if (!name) return
+            const ex = paramExample(pa)
+            target.push({ key: name, value: ex == null ? '' : String(ex), desc: pa.description || '' })
+          }
+          // Merge operation-level and path-level parameters (operation wins on the same name).
+          const listParams = Array.isArray(op.parameters) ? op.parameters : []
+          const pathParams = Array.isArray(item.parameters) ? item.parameters : []
+          const allParams = pathParams.concat(listParams)
+          // Query parameters become URL query params; header parameters become request headers.
+          // Path parameters stay as :name placeholders in the URL (the plugin does not substitute them).
+          for (const pa of allParams) if (pa && pa.in === 'query') addParam(pa, params)
+          for (const pa of allParams) if (pa && pa.in === 'header') addParam(pa, headers)
+          if (!params.length) params.push({ key: '', value: '' })
+          // ---- request body + Content-Type ---------------------------------
+          // Swagger may declare several media types (json / xml / form / text).
+          // Pick a preferred one, serialize its example, and add a matching
+          // Content-Type header if the spec did not already provide one.
+          let body = ''
+          let pickedType = ''
+          let pickedExample = undefined
+          if (op.requestBody && op.requestBody.content) {
+            const contentMap = op.requestBody.content
+            const keys = Object.keys(contentMap)
+            const preferred = ['application/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']
+            pickedType = preferred.find((k) => keys.includes(k)) || keys[0] || ''
+            const media = pickedType ? contentMap[pickedType] : null
+            if (media) {
+              if (media.example != null) pickedExample = media.example
+              else if (media.schema && media.schema.example != null) pickedExample = media.schema.example
+              else if (media.schema) {
+                // Build a minimal sample from schema properties when no example is given.
+                const props = media.schema.properties || {}
+                const sample = {}
+                for (const k of Object.keys(props)) sample[k] = props[k].example != null ? props[k].example : (props[k].type === 'integer' || props[k].type === 'number' ? 0 : '')
+                if (Object.keys(sample).length) pickedExample = sample
+              }
+            }
+            // honour an explicit Content-Type header declared in parameters
+            const explicitCT = allParams.find((pa) => pa && pa.in === 'header' && pa.name && pa.name.toLowerCase() === 'content-type')
+            if (!explicitCT && pickedType && !headers.some((h) => h.key && h.key.toLowerCase() === 'content-type')) {
+              // Replace the leading empty placeholder, or append.
+              const emptyIdx = headers.findIndex((h) => !h.key)
+              if (emptyIdx >= 0) headers[emptyIdx] = { key: 'Content-Type', value: pickedType, desc: '' }
+              else headers.push({ key: 'Content-Type', value: pickedType, desc: '' })
+            }
+          }
+          // v2: body parameter + consumes
+          const bodyParam = listParams.find((pa) => pa && pa.in === 'body')
+          if (bodyParam && !pickedType) {
+            const consumes = (op.consumes && op.consumes[0]) || (doc.consumes && doc.consumes[0]) || 'application/json'
+            pickedType = consumes
+            if (bodyParam.schema && bodyParam.schema.example != null) pickedExample = bodyParam.schema.example
+            const explicitCT = allParams.find((pa) => pa && pa.in === 'header' && pa.name && pa.name.toLowerCase() === 'content-type')
+            if (!explicitCT && !headers.some((h) => h.key && h.key.toLowerCase() === 'content-type')) {
+              const emptyIdx = headers.findIndex((h) => !h.key)
+              if (emptyIdx >= 0) headers[emptyIdx] = { key: 'Content-Type', value: pickedType, desc: '' }
+              else headers.push({ key: 'Content-Type', value: pickedType, desc: '' })
+            }
+          }
+          // Serialize according to media type (Postman-style body modes).
+          let bodyMode = 'none'
+          let rawSubtype = 'JSON'
+          let bodyRows = [{ key: '', value: '', type: 'text' }]
+          if (pickedExample !== undefined) {
+            if (/json/i.test(pickedType)) { bodyMode = 'raw'; rawSubtype = 'JSON'; body = JSON.stringify(pickedExample, null, 2) }
+            else if (/xml/i.test(pickedType)) { bodyMode = 'raw'; rawSubtype = 'XML'; body = (typeof pickedExample === 'string' ? pickedExample : simpleToXml(pickedExample)) }
+            else if (/javascript/i.test(pickedType)) { bodyMode = 'raw'; rawSubtype = 'JavaScript'; body = String(pickedExample) }
+            else if (/html/i.test(pickedType)) { bodyMode = 'raw'; rawSubtype = 'HTML'; body = String(pickedExample) }
+            else if (/x-www-form-urlencoded/i.test(pickedType) && pickedExample && typeof pickedExample === 'object') {
+              bodyMode = 'urlencoded'
+              bodyRows = Object.keys(pickedExample).map((k) => ({ key: k, value: pickedExample[k] == null ? '' : String(pickedExample[k]), type: 'text' }))
+              if (!bodyRows.length) bodyRows = [{ key: '', value: '', type: 'text' }]
+            } else if (/multipart\/form-data/i.test(pickedType) && pickedExample && typeof pickedExample === 'object') {
+              bodyMode = 'formdata'
+              bodyRows = Object.keys(pickedExample).map((k) => ({ key: k, value: pickedExample[k] == null ? '' : String(pickedExample[k]), type: 'text' }))
+              if (!bodyRows.length) bodyRows = [{ key: '', value: '', type: 'text' }]
+            } else { bodyMode = 'raw'; rawSubtype = 'Text'; body = typeof pickedExample === 'string' ? pickedExample : JSON.stringify(pickedExample) }
+          }
+          if (!headers.length) headers.push({ key: '', value: '' })
+          const name = String(op.summary || op.operationId || (method.toUpperCase() + ' ' + pathKey))
+          byTag[tag].push({
+            id: makeId(), type: 'request', name,
+            method: method.toUpperCase(), url: joinUrl(pathKey),
+            params, headers, body, bodyMode, bodyRows, rawSubtype, timeout: '20',
+          })
+          count += 1
+        }
+      }
+      if (!count) throw new Error('no paths')
+      // Source identity from info.title + version, used to replace prior imports of the same spec.
+      const info = doc.info || {}
+      const source = String(info.title || 'Swagger') + '|' + String(info.version || '')
+      const nodes = Object.keys(byTag).map((tag) => ({
+        id: makeId(), type: 'folder', name: tag, children: byTag[tag], swaggerSource: source,
+      }))
+      return { nodes, count, groups: nodes.length, source }
+    }
+
+    // Recursively remove any node (folder or request) carrying a given swaggerSource.
+    function removeBySource(nodes, source) {
+      if (!source) return nodes
+      return nodes
+        .filter((n) => n.swaggerSource !== source)
+        .map((n) => n.type === 'folder' ? { ...n, children: removeBySource(n.children || [], source) } : n)
+    }
+
 
     async function api(path, body) {
       const res = await fetch(API + path, {
@@ -130,16 +440,24 @@ window.__ModuleLoader__.load({
       const [params, setParams] = useState([{ key: '', value: '' }])
       const [headers, setHeaders] = useState([{ key: '', value: '' }])
       const [body, setBody] = useState('')
+      const [bodyMode, setBodyMode] = useState('none')  // none | formdata | urlencoded | raw | binary
+      const [rawSubtype, setRawSubtype] = useState('JSON')  // Text | JSON | JavaScript | HTML | XML
+      const [bodyRows, setBodyRows] = useState([{ key: '', value: '', type: 'text' }])
+      const [bodyFile, setBodyFile] = useState(null)  // { name, size, base64 }
+      const bodyFileRef = useRef(null)
+      const bodyRowFileRef = useRef(null)
+      const [fileRowIndex, setFileRowIndex] = useState(-1)
       const [timeout, setTimeoutV] = useState('20')
       const [tab, setTab] = useState('params')
+      const [preScript, setPreScript] = useState('')
+      const [testScript, setTestScript] = useState('')
+      const [testResults, setTestResults] = useState(null)
+      const [preTpl, setPreTpl] = useState('')
+      const [testTpl, setTestTpl] = useState('')
       const [resp, setResp] = useState(null)
       const [sending, setSending] = useState(false)
       const [err, setErr] = useState('')
-      const [collection, setCollection] = useState(() => {
-        const raw = readJSON(COLLECTION_KEY, [])
-        // Migrate old flat request list into typed tree nodes.
-        return (raw || []).map((x) => x && x.type === 'folder' ? x : { ...x, type: x.type || 'request' })
-      })
+      const [collection, setCollection] = useState(() => readJSON(COLLECTION_KEY, []))
       const [currentFolder, setCurrentFolder] = useState('')   // '' = root; folder id
       const [folderName, setFolderName] = useState('')
       const [expandedFolders, setExpandedFolders] = useState({})
@@ -147,6 +465,16 @@ window.__ModuleLoader__.load({
       const [editValue, setEditValue] = useState('')
       const [collectionQuery, setCollectionQuery] = useState('')
       const fileRef = useRef(null)
+      const [swaggerOpen, setSwaggerOpen] = useState(false)
+      const [swaggerUrl, setSwaggerUrl] = useState('')
+      const [swaggerText, setSwaggerText] = useState('')
+      const [swaggerBase, setSwaggerBase] = useState('')
+      const [swaggerTarget, setSwaggerTarget] = useState('')
+      const [swaggerBusy, setSwaggerBusy] = useState(false)
+      const [logSearch, setLogSearch] = useState('')
+      const [historySearch, setHistorySearch] = useState('')
+      const [selectedLog, setSelectedLog] = useState(null)
+      const [logDetailTab, setLogDetailTab] = useState('req')
       const [history, setHistory] = useState(() => readJSON(HISTORY_KEY, []))
       const [saveName, setSaveName] = useState('')
       const [pretty, setPretty] = useState(true)
@@ -173,45 +501,105 @@ window.__ModuleLoader__.load({
         return m
       }, [activeEnv])
       // Replace {{key}} with the active environment's value.
-      const resolveVars = useCallback((s) => {
-        if (!s || typeof s !== 'string' || !Object.keys(varMap).length) return s
-        return s.replace(/\{\{\s*([\w.\-]+)\s*\}\}/g, (match, k) => (k in varMap ? varMap[k] : match))
-      }, [varMap])
+      const resolveVars = useCallback((s) => resolveWith(s, varMap), [varMap])
 
-      const buildUrl = useCallback(() => {
+      const buildUrl = useCallback((extraVars) => {
+        const r = (v) => resolveWith(v, { ...varMap, ...(extraVars || {}) })
         const active = params.filter((p) => p.key.trim())
-        const base = resolveVars(url)
+        const base = r(url)
         if (!active.length) return base
         try {
           const u = new URL(base)
-          for (const p of active) u.searchParams.set(p.key.trim(), resolveVars(p.value || ''))
+          for (const p of active) u.searchParams.set(p.key.trim(), r(p.value || ''))
           return u.toString()
         } catch (_) {
-          const q = active.map((p) => encodeURIComponent(p.key.trim()) + '=' + encodeURIComponent(resolveVars(p.value || ''))).join('&')
+          const q = active.map((p) => encodeURIComponent(p.key.trim()) + '=' + encodeURIComponent(r(p.value || ''))).join('&')
           return base + (base.includes('?') ? '&' : '?') + q
         }
-      }, [url, params, resolveVars])
+      }, [url, params, varMap])
 
       const send = useCallback(async () => {
         if (!url.trim()) { setErr(t('url') + '?'); return }
-        setSending(true); setErr(''); setResp(null)
+        setSending(true); setErr(''); setResp(null); setTestResults(null)
+        // Pre-request script: may set variables used by this request.
+        const preResult = runScript(preScript, { env: varMap, vars: varMap })
+        if (preResult.error) setErr(t('scriptError') + ': ' + preResult.error)
+        const sendVars = { ...varMap, ...preResult.vars }
+        const rv = (v) => resolveWith(v, sendVars)
         const headerObj = {}
-        for (const hh of headers) if (hh.key.trim()) headerObj[hh.key.trim()] = resolveVars(hh.value || '')
-        const finalUrl = buildUrl()
+        for (const hh of headers) if (hh.key.trim()) headerObj[hh.key.trim()] = rv(hh.value || '')
+        const finalUrl = buildUrl(preResult.vars)
+        const noBody = ['GET', 'HEAD'].includes(method)
+        let payload = ''
+        let bodyBase64
+        if (!noBody) {
+          if (bodyMode === 'none') {
+            payload = ''
+          } else if (bodyMode === 'urlencoded') {
+            payload = bodyRows.filter((r) => r.key).map((r) => encodeURIComponent(r.key.trim()) + '=' + encodeURIComponent(rv(r.value || ''))).join('&')
+          } else if (bodyMode === 'formdata') {
+            // multipart/form-data: build a body with a random boundary; text rows and file rows.
+            const boundary = '----dshForm' + Date.now().toString(36)
+            const parts = []
+            for (const r of bodyRows) {
+              if (!r.key) continue
+              if (r.type === 'file' && r.file) {
+                parts.push('--' + boundary + '\r\nContent-Disposition: form-data; name="' + r.key + '"; filename="' + r.file.name + '"\r\nContent-Type: application/octet-stream\r\n\r\n')
+                parts.push({ b64: r.file.base64 })
+                parts.push('\r\n')
+              } else {
+                parts.push('--' + boundary + '\r\nContent-Disposition: form-data; name="' + r.key + '"\r\n\r\n' + rv(r.value || '') + '\r\n')
+              }
+            }
+            parts.push('--' + boundary + '--\r\n')
+            // Mixed text + binary: encode whole thing to base64 for the Host.
+            let binary = ''
+            for (const part of parts) {
+              if (typeof part === 'string') binary += part
+              else {
+                const raw = part.b64.indexOf(',') >= 0 ? part.b64.slice(part.b64.indexOf(',') + 1) : part.b64
+                const bytes = Uint8Array.from(atob(raw), (c) => c.charCodeAt(0))
+                binary += String.fromCharCode.apply(null, bytes)
+              }
+            }
+            bodyBase64 = btoa(binary)
+            headerObj['Content-Type'] = 'multipart/form-data; boundary=' + boundary
+          } else if (bodyMode === 'binary') {
+            if (!bodyFile) { setErr(t('bodyFileNone')); setSending(false); return }
+            bodyBase64 = bodyFile.base64
+          } else {
+            payload = rv(body)  // raw
+          }
+        }
         const result = await api('/request', {
           method, url: finalUrl, headers: headerObj,
-          body: ['GET', 'HEAD'].includes(method) ? '' : resolveVars(body),
+          body: noBody ? '' : payload,
+          bodyBase64,
           timeout: (Number(timeout) || 20),
         })
         if (result.error) { setErr(result.error); setResp({ timeMs: result.timeMs }) }
         else setResp(result)
+        // Tests script: runs after the response is available.
+        if (testScript.trim()) {
+          const testResult = runScript(testScript, { env: sendVars, vars: sendVars, response: result })
+          setTestResults(testResult)
+        }
         setHistory((prev) => [{
           id: makeId(), method, url: finalUrl, time: new Date().toISOString(),
           status: result.status, error: result.error || '',
-          snapshot: { method, url, params, headers, body, timeout },
-        }, ...prev].slice(0, 100))
+          // Full request + response detail for the log viewer.
+          request: {
+            method, url: finalUrl, headers: headerObj,
+            body: noBody ? '' : (bodyMode === 'binary' ? '[binary] ' + (bodyFile ? bodyFile.name : '') : (bodyMode === 'formdata' ? '[form-data] ' + bodyRows.filter((r) => r.key).length + ' fields' : payload)),
+            params, bodyMode,
+          },
+          response: result.error
+            ? { error: result.error, timeMs: result.timeMs }
+            : { status: result.status, statusText: result.statusText || '', headers: result.headers || {}, body: result.body || '', timeMs: result.timeMs, size: result.size },
+          snapshot: { method, url, params, headers, body, bodyMode, bodyRows, rawSubtype, preScript, testScript, timeout },
+        }, ...prev].slice(0, 200))
         setSending(false)
-      }, [url, method, headers, body, timeout, buildUrl, params, resolveVars])
+      }, [url, method, headers, body, bodyRows, bodyMode, bodyFile, rawSubtype, timeout, buildUrl, params, resolveVars, preScript, testScript, varMap])
 
       // ---- collection tree helpers ----
       const findFolder = useCallback((nodes, id) => {
@@ -236,6 +624,21 @@ window.__ModuleLoader__.load({
         }
         return null
       }, [])
+      // Flatten all folders with their breadcrumb path for the Swagger target selector.
+      const allFolders = useMemo(() => {
+        const out = []
+        const walk = (nodes, path) => {
+          for (const n of nodes || []) {
+            if (n.type !== 'folder') continue
+            const here = [...path, n.name]
+            out.push({ id: n.id, label: here.join(' / ') })
+            walk(n.children || [], here)
+          }
+        }
+        walk(collection, [])
+        return out
+      }, [collection])
+
       // Fuzzy filter nodes by folder name / request name / method / URL.
       const filterTree = useCallback((nodes, q) => {
         if (!q) return nodes
@@ -327,11 +730,11 @@ window.__ModuleLoader__.load({
       const saveRequest = useCallback(() => {
         const name = saveName.trim() || (method + ' ' + url)
         if (!url.trim()) return
-        const node = { id: makeId(), type: 'request', name, method, url, params, headers, body, timeout }
+        const node = { id: makeId(), type: 'request', name, method, url, params, headers, body, bodyMode, bodyRows, rawSubtype, preScript, testScript, timeout }
         setCollection((prev) => insertNode(prev, currentFolder, node))
         if (currentFolder) setExpandedFolders((prev) => ({ ...prev, [currentFolder]: true }))
         setSaveName('')
-      }, [saveName, method, url, params, headers, body, timeout, currentFolder, insertNode])
+      }, [saveName, method, url, params, headers, body, bodyMode, bodyRows, rawSubtype, preScript, testScript, timeout, currentFolder, insertNode])
 
 
       const loadSaved = useCallback((s) => {
@@ -339,6 +742,12 @@ window.__ModuleLoader__.load({
         setParams(s.params && s.params.length ? s.params : [{ key: '', value: '' }])
         setHeaders(s.headers && s.headers.length ? s.headers : [{ key: '', value: '' }])
         setBody(s.body || ''); setTimeoutV(s.timeout || '20'); setResp(null)
+        setBodyMode(s.bodyMode || 'none')
+        setRawSubtype(s.rawSubtype || 'JSON')
+        setPreScript(s.preScript || '')
+        setTestScript(s.testScript || '')
+        setTestResults(null)
+        setBodyRows(s.bodyRows && s.bodyRows.length ? s.bodyRows : [{ key: '', value: '', type: 'text' }])
       }, [])
 
       // ---- environment management ----
@@ -379,6 +788,62 @@ window.__ModuleLoader__.load({
 
       const allCommonHeaders = useMemo(() => [...COMMON_HEADERS, ...customHeaders], [customHeaders])
 
+      // Decide how the Body editor should render: explicit override, else derive
+      // from the Content-Type request header (default json).
+      const insertPreTpl = useCallback(() => {
+        const tpl = SCRIPT_TEMPLATES.pre.find((x) => x.name === preTpl)
+        if (!tpl) return
+        setPreScript((prev) => (prev ? prev + '\n\n' : '') + tpl.code)
+        setPreTpl('')
+      }, [preTpl])
+      const insertTestTpl = useCallback(() => {
+        const tpl = SCRIPT_TEMPLATES.tests.find((x) => x.name === testTpl)
+        if (!tpl) return
+        setTestScript((prev) => (prev ? prev + '\n\n' : '') + tpl.code)
+        setTestTpl('')
+      }, [testTpl])
+
+      const chooseBodyFile = useCallback((e) => {
+        const file = e.target.files && e.target.files[0]
+        if (!file) return
+        const reader = new FileReader()
+        reader.onload = () => {
+          setBodyFile({ name: file.name, size: file.size, base64: String(reader.result || '') })
+          setErr('')
+        }
+        reader.onerror = () => setErr(t('uploadFail'))
+        reader.readAsDataURL(file)
+        e.target.value = ''
+      }, [])
+
+      // Postman-style: the selected body type determines Content-Type automatically.
+      const RAW_CT = { Text: 'text/plain', JSON: 'application/json', JavaScript: 'application/javascript', HTML: 'text/html', XML: 'application/xml' }
+      const contentTypeFor = (mode, subtype) => {
+        if (mode === 'formdata') return 'multipart/form-data'
+        if (mode === 'urlencoded') return 'application/x-www-form-urlencoded'
+        if (mode === 'raw') return RAW_CT[subtype] || 'text/plain'
+        if (mode === 'binary') return 'application/octet-stream'
+        return ''
+      }
+      const setHeaderKey = (key, value) => {
+        setHeaders((prev) => {
+          const idx = prev.findIndex((h) => h.key && h.key.trim().toLowerCase() === key.toLowerCase())
+          if (value === '') return idx < 0 ? prev : prev.filter((_, i) => i !== idx)
+          if (idx >= 0) return prev.map((h, i) => i === idx ? { ...h, key, value } : h)
+          const empty = prev.findIndex((h) => !h.key)
+          if (empty >= 0) return prev.map((h, i) => i === empty ? { key, value, desc: '' } : h)
+          return [...prev, { key, value, desc: '' }]
+        })
+      }
+      // Called when the user picks a body type / raw subtype: sync the Content-Type header.
+      const pickBodyMode = (mode) => {
+        setBodyMode(mode)
+        setHeaderKey('Content-Type', contentTypeFor(mode, rawSubtype))
+      }
+      const pickRawSubtype = (subtype) => {
+        setRawSubtype(subtype)
+        if (bodyMode === 'raw') setHeaderKey('Content-Type', RAW_CT[subtype] || 'text/plain')
+      }
       const updateRow = (setter, idx, field, val) => setter((prev) => prev.map((r, i) => i === idx ? { ...r, [field]: val } : r))
       const addRow = (setter) => setter((prev) => [...prev, { key: '', value: '' }])
       const delRow = (setter, idx) => setter((prev) => prev.filter((_, i) => i !== idx))
@@ -492,6 +957,40 @@ window.__ModuleLoader__.load({
       // ---- import / export -------------------------------------------------
       // Export writes a portable JSON document; import merges it back, regenerating
       // ids so imported entries never collide with existing ones.
+      // ---- Swagger / OpenAPI import ---------------------------------------
+      const fetchSwagger = useCallback(async () => {
+        if (!swaggerUrl.trim()) { setErr(t('swaggerPasteOrUrl')); return }
+        setSwaggerBusy(true); setErr('')
+        try {
+          const res = await fetch(swaggerUrl.trim())
+          if (!res.ok) throw new Error('HTTP ' + res.status)
+          const text = await res.text()
+          setSwaggerText(text)
+        } catch (e) { setErr(fmt(t('swaggerFail'), { msg: e.message })) }
+        finally { setSwaggerBusy(false) }
+      }, [swaggerUrl])
+
+      const importSwagger = useCallback(() => {
+        if (!swaggerText.trim()) { setErr(t('swaggerPasteOrUrl')); return }
+        let parsed
+        try { parsed = parseSwagger(JSON.parse(swaggerText), swaggerBase) }
+        catch (e) { setErr(fmt(t('swaggerFail'), { msg: e.message === 'no paths' ? t('swaggerNoPaths') : e.message })); return }
+        // Replace any previous import of the same source (info.title + version) so
+        // re-importing the same spec updates in place instead of creating duplicates.
+        setCollection((prev) => {
+          const cleaned = removeBySource(prev, parsed.source)
+          // If the previously chosen root was itself part of the replaced import,
+          // fall back to the top level rather than inserting into a deleted folder.
+          const targetExists = swaggerTarget ? findNode(cleaned, swaggerTarget) : true
+          const target = targetExists ? swaggerTarget : ''
+          if (!targetExists && swaggerTarget) setSwaggerTarget('')
+          return parsed.nodes.reduce((acc, node) => insertNode(acc, target, node), cleaned)
+        })
+        if (swaggerTarget) setExpandedFolders((prev) => ({ ...prev, [swaggerTarget]: true }))
+        setSwaggerOpen(false); setSwaggerText('')
+        setErr(fmt(t('swaggerOk'), { n: parsed.count, g: parsed.groups }))
+      }, [swaggerText, swaggerBase, swaggerTarget, insertNode, findNode])
+
       const buildExport = useCallback((scope) => {
         const doc = {
           app: 'dsh-tree-new-bee-api-client',
@@ -597,6 +1096,7 @@ window.__ModuleLoader__.load({
           h('div', { className: 'dshApi-headActions' },
             h('button', { type: 'button', className: 'dshApi-back', title: t('exportAll'), onClick: () => exportData('all') }, t('export')),
             h('button', { type: 'button', className: 'dshApi-back', title: t('import'), onClick: () => fileRef.current && fileRef.current.click() }, t('import')),
+            h('button', { type: 'button', className: 'dshApi-back', title: t('swaggerImport'), onClick: () => { setSwaggerTarget(currentFolder); setSwaggerOpen(true) } }, t('swaggerImport')),
             h('button', { type: 'button', className: 'dshApi-back', onClick: goBack }, '‹ ' + t('back'))
           )
         ),
@@ -621,7 +1121,8 @@ window.__ModuleLoader__.load({
             h('div', { className: 'dshApi-tabs' },
               h('button', { type: 'button', className: 'dshApi-tab' + (sideTab === 'collection' ? ' dshApi-tabOn' : ''), onClick: () => setSideTab('collection') }, t('collection')),
               h('button', { type: 'button', className: 'dshApi-tab' + (sideTab === 'envs' ? ' dshApi-tabOn' : ''), onClick: () => setSideTab('envs') }, t('envs')),
-              h('button', { type: 'button', className: 'dshApi-tab' + (sideTab === 'history' ? ' dshApi-tabOn' : ''), onClick: () => setSideTab('history') }, t('history'))
+              h('button', { type: 'button', className: 'dshApi-tab' + (sideTab === 'history' ? ' dshApi-tabOn' : ''), onClick: () => setSideTab('history') }, t('history')),
+              h('button', { type: 'button', className: 'dshApi-tab' + (sideTab === 'log' ? ' dshApi-tabOn' : ''), onClick: () => setSideTab('log') }, t('log'))
             ),
             sideTab === 'collection'
               ? h('div', { className: 'dshApi-sideList' },
@@ -681,18 +1182,54 @@ window.__ModuleLoader__.load({
                           )
                         )
                   )
-                : h('div', { className: 'dshApi-sideList' },
-                    h('button', { type: 'button', className: 'dshApi-btn dshApi-btnSm', onClick: () => setHistory([]) }, t('clearHistory')),
-                  history.length === 0
-                    ? h('div', { className: 'dshApi-note' }, t('noHistory'))
-                    : history.map((it) =>
-                        h('div', { key: it.id, className: 'dshApi-sideItem', onClick: () => { if (it.snapshot) loadSaved(it.snapshot) } },
-                          h('span', { className: 'dshApi-method dshApi-' + it.method }, it.method),
-                          h('span', { className: 'dshApi-sideName' }, (it.error ? '✗ ' : (it.status || '') + ' ') + it.url),
-                          h('span', { className: 'dshApi-timeSmall' }, new Date(it.time).toLocaleTimeString())
-                        )
+                : sideTab === 'log'
+                  ? (() => {
+                      const q = logSearch.trim().toLowerCase()
+                      const shown = q ? history.filter((it) =>
+                        String(it.url || '').toLowerCase().includes(q) ||
+                        String(it.method || '').toLowerCase().includes(q) ||
+                        String(it.status || '').includes(q) ||
+                        String(it.error || '').toLowerCase().includes(q)
+                      ) : history
+                      return h('div', { className: 'dshApi-sideList' },
+                        h('input', {
+                          className: 'dshApi-input dshApi-logSearch', type: 'text', value: logSearch,
+                          placeholder: t('logSearch'), onChange: (e) => setLogSearch(e.target.value),
+                        }),
+                        h('button', { type: 'button', className: 'dshApi-btn dshApi-btnSm', onClick: () => { setHistory([]); setLogSearch('') } }, t('logClear')),
+                        shown.length === 0
+                          ? h('div', { className: 'dshApi-note' }, history.length ? t('noMatches') : t('logEmpty'))
+                          : shown.map((it) =>
+                              h('div', { key: it.id, className: 'dshApi-sideItem', onClick: () => { setSelectedLog(it); setLogDetailTab('req') } },
+                                h('span', { className: 'dshApi-method dshApi-' + it.method }, it.method),
+                                h('span', { className: 'dshApi-sideName' }, (it.error ? '✗ ' : (it.status || '') + ' ') + it.url),
+                                h('span', { className: 'dshApi-timeSmall' }, new Date(it.time).toLocaleTimeString())
+                              )
+                            )
                       )
-                )
+                    })()
+                  : (() => {
+                      const q = historySearch.trim().toLowerCase()
+                      const shown = q ? history.filter((it) =>
+                        String(it.url || '').toLowerCase().includes(q) || String(it.method || '').toLowerCase().includes(q)
+                      ) : history
+                      return h('div', { className: 'dshApi-sideList' },
+                        h('input', {
+                          className: 'dshApi-input dshApi-logSearch', type: 'text', value: historySearch,
+                          placeholder: t('historySearch'), onChange: (e) => setHistorySearch(e.target.value),
+                        }),
+                        h('button', { type: 'button', className: 'dshApi-btn dshApi-btnSm', onClick: () => { setHistory([]); setHistorySearch('') } }, t('clearHistory')),
+                        shown.length === 0
+                          ? h('div', { className: 'dshApi-note' }, history.length ? t('noMatches') : t('noHistory'))
+                          : shown.map((it) =>
+                              h('div', { key: it.id, className: 'dshApi-sideItem', onClick: () => { if (it.snapshot) loadSaved(it.snapshot) } },
+                                h('span', { className: 'dshApi-method dshApi-' + it.method }, it.method),
+                                h('span', { className: 'dshApi-sideName' }, (it.error ? '✗ ' : (it.status || '') + ' ') + it.url),
+                                h('span', { className: 'dshApi-timeSmall' }, new Date(it.time).toLocaleTimeString())
+                              )
+                            )
+                      )
+                    })()
           ),
           // right: request + response
           h('div', { className: 'dshApi-col dshApi-main' },
@@ -713,7 +1250,9 @@ window.__ModuleLoader__.load({
               h('div', { className: 'dshApi-tabs' },
                 h('button', { type: 'button', className: 'dshApi-tab' + (tab === 'params' ? ' dshApi-tabOn' : ''), onClick: () => setTab('params') }, t('params')),
                 h('button', { type: 'button', className: 'dshApi-tab' + (tab === 'headers' ? ' dshApi-tabOn' : ''), onClick: () => setTab('headers') }, t('headers')),
-                h('button', { type: 'button', className: 'dshApi-tab' + (tab === 'body' ? ' dshApi-tabOn' : ''), onClick: () => setTab('body') }, t('body'))
+                h('button', { type: 'button', className: 'dshApi-tab' + (tab === 'body' ? ' dshApi-tabOn' : ''), onClick: () => setTab('body') }, t('body')),
+                h('button', { type: 'button', className: 'dshApi-tab' + (tab === 'pre' ? ' dshApi-tabOn' : ''), onClick: () => setTab('pre') }, t('preRequest')),
+                h('button', { type: 'button', className: 'dshApi-tab' + (tab === 'tests' ? ' dshApi-tabOn' : ''), onClick: () => setTab('tests') }, t('tests'))
               ),
               tab === 'params' ? renderRows(params, setParams) : null,
               tab === 'headers'
@@ -760,12 +1299,116 @@ window.__ModuleLoader__.load({
                   )
                 : null,
               tab === 'body'
-                ? h('textarea', {
-                    className: 'dshApi-body', value: body, spellCheck: false,
-                    placeholder: '{ "key": "value" }',
-                    onChange: (e) => setBody(e.target.value),
-                  })
-                : null
+                ? h('div', { className: 'dshApi-bodyWrap' },
+                    h('div', { className: 'dshApi-toolbar dshApi-bodyModeBar' },
+                      h('span', { className: 'dshApi-cardTitle', title: t('bodyModeHint') }, t('bodyMode') + ':'),
+                      [['none', t('bodyNone')], ['formdata', t('bodyFormData')], ['urlencoded', t('bodyUrlencoded')], ['raw', t('bodyRaw')], ['binary', t('bodyBinary')]].map(([v, label]) =>
+                        h('button', {
+                          type: 'button', className: 'dshApi-btn dshApi-btnSm' + (bodyMode === v ? ' dshApi-tabOn' : ''),
+                          onClick: () => pickBodyMode(v),
+                        }, label)
+                      )
+                    ),
+                    bodyMode === 'none'
+                      ? h('div', { className: 'dshApi-note' }, t('bodyNone'))
+                      : bodyMode === 'raw'
+                        ? h('div', { className: 'dshApi-rawWrap' },
+                            h('div', { className: 'dshApi-toolbar' },
+                              h('span', { className: 'dshApi-cardTitle' }, t('rawSubtype') + ':'),
+                              h('select', { className: 'dshApi-select', value: rawSubtype, onChange: (e) => pickRawSubtype(e.target.value) },
+                                ['Text', 'JSON', 'JavaScript', 'HTML', 'XML'].map((v) => h('option', { key: v, value: v }, v))
+                              )
+                            ),
+                            h('textarea', {
+                              className: 'dshApi-body', value: body, spellCheck: false,
+                              placeholder: rawSubtype === 'JSON' ? '{ "key": "value" }' : t('rawPlaceholder'),
+                              onChange: (e) => setBody(e.target.value),
+                            })
+                          )
+                        : bodyMode === 'binary'
+                          ? h('div', { className: 'dshApi-fileBody' },
+                              h('input', { ref: bodyFileRef, type: 'file', style: { display: 'none' }, onChange: chooseBodyFile }),
+                              h('button', { type: 'button', className: 'dshApi-btn', onClick: () => bodyFileRef.current && bodyFileRef.current.click() }, t('bodyFileChoose')),
+                              h('span', { className: 'dshApi-fileInfo' }, bodyFile ? fmt(t('bodyFileInfo'), { name: bodyFile.name, size: bodyFile.size }) : t('bodyFileNone'))
+                            )
+                          : h('div', { className: 'dshApi-formRows' },
+                              h('div', { className: 'dshApi-rowHead dshApi-formHead' },
+                                h('span', null, t('key')),
+                                h('span', null, t('value')),
+                                h('span', null, '')
+                              ),
+                              bodyRows.map((r, i) =>
+                                h('div', { key: i, className: 'dshApi-row' },
+                                  h('div', { className: 'dshApi-formKey' },
+                                    bodyMode === 'formdata'
+                                      ? h('button', {
+                                          type: 'button', className: 'dshApi-typeChip' + (r.type === 'file' ? ' dshApi-typeChipOn' : ''),
+                                          title: t('bodyFileFieldHint'),
+                                          onClick: () => setBodyRows((prev) => prev.map((x, j) => j === i ? { ...x, type: x.type === 'file' ? 'text' : 'file' } : x)),
+                                        }, r.type === 'file' ? '📎' : 'T')
+                                      : null,
+                                    h('input', { className: 'dshApi-input', value: r.key, placeholder: t('bodyFiledName'), onChange: (e) => setBodyRows((prev) => prev.map((x, j) => j === i ? { ...x, key: e.target.value } : x)) })
+                                  ),
+                                  r.type === 'file' && bodyMode === 'formdata'
+                                    ? h('button', {
+                                        type: 'button', className: 'dshApi-input dshApi-filePick',
+                                        onClick: () => { setFileRowIndex(i); bodyRowFileRef.current && bodyRowFileRef.current.click() },
+                                      }, r.file ? r.file.name : t('bodyFileChoose'))
+                                    : h('input', { className: 'dshApi-input', value: r.value, placeholder: t('value'), onChange: (e) => setBodyRows((prev) => prev.map((x, j) => j === i ? { ...x, value: e.target.value } : x)) }),
+                                  h('button', { type: 'button', className: 'dshApi-mini', title: t('remove'), onClick: () => setBodyRows((prev) => prev.filter((_, j) => j !== i)) }, '×')
+                                )
+                              ),
+                              h('button', { type: 'button', className: 'dshApi-btn dshApi-btnSm', onClick: () => setBodyRows((prev) => [...prev, { key: '', value: '', type: 'text' }]) }, '+ ' + t('addRow'))
+                            ),
+                    h('input', {
+                      ref: bodyRowFileRef, type: 'file', style: { display: 'none' }, onChange: (e) => {
+                        const f = e.target.files && e.target.files[0]; if (!f) return
+                        const idx = fileRowIndex
+                        const reader = new FileReader()
+                        reader.onload = () => {
+                          if (idx >= 0) setBodyRows((prev) => prev.map((x, j) => j === idx ? { ...x, file: { name: f.name, size: f.size, base64: String(reader.result || '') } } : x))
+                          setFileRowIndex(-1)
+                        }
+                        reader.readAsDataURL(f); e.target.value = ''
+                      }
+                    })
+                  )
+                : null,
+              tab === 'pre'
+                ? h('div', { className: 'dshApi-scriptWrap' },
+                    h('div', { className: 'dshApi-toolbar' },
+                      h('span', { className: 'dshApi-cardTitle' }, t('scriptTemplate') + ':'),
+                      h('select', { className: 'dshApi-select', value: preTpl, onChange: (e) => setPreTpl(e.target.value) },
+                        h('option', { value: '' }, t('scriptChoose')),
+                        SCRIPT_TEMPLATES.pre.map((x) => h('option', { key: x.name, value: x.name }, x.name))
+                      ),
+                      h('button', { type: 'button', className: 'dshApi-btn dshApi-btnSm', disabled: !preTpl, onClick: insertPreTpl }, '+ ' + t('scriptInsert'))
+                    ),
+                    h('div', { className: 'dshApi-note dshApi-scriptHint' }, t('scriptHint')),
+                    h('textarea', {
+                      className: 'dshApi-script', spellCheck: false, value: preScript,
+                      placeholder: 'pm.environment.set("token", "abc");',
+                      onChange: (e) => setPreScript(e.target.value),
+                    })
+                  )
+                : tab === 'tests'
+                  ? h('div', { className: 'dshApi-scriptWrap' },
+                      h('div', { className: 'dshApi-toolbar' },
+                        h('span', { className: 'dshApi-cardTitle' }, t('scriptTemplate') + ':'),
+                        h('select', { className: 'dshApi-select', value: testTpl, onChange: (e) => setTestTpl(e.target.value) },
+                          h('option', { value: '' }, t('scriptChoose')),
+                          SCRIPT_TEMPLATES.tests.map((x) => h('option', { key: x.name, value: x.name }, x.name))
+                        ),
+                        h('button', { type: 'button', className: 'dshApi-btn dshApi-btnSm', disabled: !testTpl, onClick: insertTestTpl }, '+ ' + t('scriptInsert'))
+                      ),
+                      h('div', { className: 'dshApi-note dshApi-scriptHint' }, t('scriptHint')),
+                      h('textarea', {
+                        className: 'dshApi-script', spellCheck: false, value: testScript,
+                        placeholder: 'pm.test("status 200", function () {\n  pm.expect(response.status).to.eql(200);\n});',
+                        onChange: (e) => setTestScript(e.target.value),
+                      })
+                    )
+                  : null
             ),
             h('div', { className: 'dshApi-card dshApi-grow' },
               h('div', { className: 'dshApi-toolbar' },
@@ -783,14 +1426,37 @@ window.__ModuleLoader__.load({
                 ? h('div', null,
                     h('div', { className: 'dshApi-tabs' },
                       h('button', { type: 'button', className: 'dshApi-tab' + (respTab === 'body' ? ' dshApi-tabOn' : ''), onClick: () => setRespTab('body') }, t('body')),
-                      h('button', { type: 'button', className: 'dshApi-tab' + (respTab === 'headers' ? ' dshApi-tabOn' : ''), onClick: () => setRespTab('headers') }, t('respHeaders'))
+                      h('button', { type: 'button', className: 'dshApi-tab' + (respTab === 'headers' ? ' dshApi-tabOn' : ''), onClick: () => setRespTab('headers') }, t('respHeaders')),
+                      h('button', { type: 'button', className: 'dshApi-tab' + (respTab === 'tests' ? ' dshApi-tabOn' : ''), onClick: () => setRespTab('tests') }, t('testResults'))
                     ),
-                    respTab === 'body'
-                      ? h('div', null,
-                          h('label', { className: 'dshApi-cb' }, h('input', { type: 'checkbox', checked: pretty, onChange: (e) => setPretty(e.target.checked) }), t('pretty')),
-                          h('pre', { className: 'dshApi-response' }, prettyBody || '(empty)')
+                    respTab === 'tests'
+                      ? h('div', { className: 'dshApi-results' },
+                          !testResults
+                            ? h('div', { className: 'dshApi-note' }, t('noTests'))
+                            : (() => {
+                                const passed = testResults.tests.filter((x) => x.passed).length
+                                const failed = testResults.tests.length - passed
+                                return h('div', null,
+                                  testResults.error ? h('div', { className: 'dshApi-err' }, t('scriptError') + ': ' + testResults.error) : null,
+                                  h('div', { className: 'dshApi-resultSummary' + (failed ? ' dshApi-resultFail' : '') },
+                                    failed ? fmt(t('testSomeFail'), { p: passed, f: failed }) : fmt(t('testAllPass'), { n: passed })
+                                  ),
+                                  testResults.tests.map((x, i) =>
+                                    h('div', { key: i, className: 'dshApi-resultRow' },
+                                      h('span', { className: x.passed ? 'dshApi-testPass' : 'dshApi-testFail' }, x.passed ? '✓' : '✗'),
+                                      h('span', null, x.name),
+                                      x.error ? h('span', { className: 'dshApi-errSmall' }, x.error) : null
+                                    )
+                                  )
+                                )
+                              })()
                         )
-                      : h('div', { className: 'dshApi-headers' },
+                      : respTab === 'body'
+                        ? h('div', { className: 'dshApi-respBody' },
+                            h('label', { className: 'dshApi-cb' }, h('input', { type: 'checkbox', checked: pretty, onChange: (e) => setPretty(e.target.checked) }), t('pretty')),
+                            h('pre', { className: 'dshApi-response' }, prettyBody || '(empty)')
+                          )
+                        : h('div', { className: 'dshApi-headers' },
                           Object.entries(resp.headers || {}).map(([k, v]) => h('div', { key: k, className: 'dshApi-hrow' }, h('b', null, k + ': '), v))
                         )
                   )
@@ -798,7 +1464,109 @@ window.__ModuleLoader__.load({
             )
           )
         ),
-        h('div', { className: 'dshApi-foot' }, t('tip'))
+        // Swagger / OpenAPI import modal
+        swaggerOpen
+          ? h('div', { className: 'dshApi-modalMask', onClick: () => setSwaggerOpen(false) },
+              h('div', { className: 'dshApi-modal', onClick: (e) => e.stopPropagation() },
+                h('div', { className: 'dshApi-modalTitle' }, t('swaggerTitle')),
+                h('div', { className: 'dshApi-modalHint' }, t('swaggerHint')),
+                h('label', { className: 'dshApi-field' },
+                  h('span', null, t('swaggerUrl')),
+                  h('div', { className: 'dshApi-modalRow' },
+                    h('input', {
+                      className: 'dshApi-input', value: swaggerUrl, placeholder: 'https://api.example.com/swagger.json',
+                      onChange: (e) => setSwaggerUrl(e.target.value),
+                      onKeyDown: (e) => { if (e.key === 'Enter') fetchSwagger() },
+                    }),
+                    h('button', { type: 'button', className: 'dshApi-btn', disabled: swaggerBusy || !swaggerUrl.trim(), onClick: fetchSwagger }, swaggerBusy ? t('swaggerFetching') : t('swaggerFetch'))
+                  )
+                ),
+                h('label', { className: 'dshApi-field' },
+                  h('span', null, t('swaggerBaseUrl') + ' — ' + t('swaggerBaseHint')),
+                  h('input', { className: 'dshApi-input', value: swaggerBase, placeholder: '{{baseUrl}}', onChange: (e) => setSwaggerBase(e.target.value) })
+                ),
+                h('label', { className: 'dshApi-field' },
+                  h('span', null, t('swaggerTarget')),
+                  h('select', {
+                    className: 'dshApi-select', value: swaggerTarget,
+                    onChange: (e) => setSwaggerTarget(e.target.value),
+                  },
+                    h('option', { value: '' }, t('swaggerTargetRoot')),
+                    allFolders.map((f) => h('option', { key: f.id, value: f.id }, f.label))
+                  )
+                ),
+                h('label', { className: 'dshApi-field' },
+                  h('span', null, t('swaggerJson')),
+                  h('textarea', {
+                    className: 'dshApi-body dshApi-swaggerJson', spellCheck: false, value: swaggerText,
+                    placeholder: t('swaggerJsonPlaceholder'), onChange: (e) => setSwaggerText(e.target.value),
+                  })
+                ),
+                h('div', { className: 'dshApi-modalActions' },
+                  h('button', { type: 'button', className: 'dshApi-btn', onClick: () => setSwaggerOpen(false) }, t('close')),
+                  h('button', { type: 'button', className: 'dshApi-btn dshApi-btnPrimary', disabled: !swaggerText.trim(), onClick: importSwagger }, t('swaggerDoImport'))
+                )
+              )
+            )
+          : null,
+
+        // request/response log detail modal
+        selectedLog
+          ? h('div', { className: 'dshApi-modalMask', onClick: () => setSelectedLog(null) },
+              h('div', { className: 'dshApi-modal dshApi-modalWide', onClick: (e) => e.stopPropagation() },
+                h('div', { className: 'dshApi-modalTitle' },
+                  h('span', { className: 'dshApi-method dshApi-' + selectedLog.method }, selectedLog.method),
+                  ' ' + selectedLog.url
+                ),
+                h('div', { className: 'dshApi-modalMeta' },
+                  t('logTime') + ': ' + new Date(selectedLog.time).toLocaleString() +
+                  (selectedLog.response && selectedLog.response.timeMs != null ? '  ·  ' + t('logDuration') + ': ' + selectedLog.response.timeMs + 'ms' : '')
+                ),
+                h('div', { className: 'dshApi-tabs' },
+                  h('button', { type: 'button', className: 'dshApi-tab' + (logDetailTab === 'req' ? ' dshApi-tabOn' : ''), onClick: () => setLogDetailTab('req') }, t('logReqTab')),
+                  h('button', { type: 'button', className: 'dshApi-tab' + (logDetailTab === 'resp' ? ' dshApi-tabOn' : ''), onClick: () => setLogDetailTab('resp') }, t('logRespTab'))
+                ),
+                logDetailTab === 'req'
+                  ? h('div', { className: 'dshApi-logDetail' },
+                      h('div', { className: 'dshApi-logBlock' },
+                        h('div', { className: 'dshApi-logBlockHead' },
+                          h('span', null, t('logHeaders')),
+                          h('button', { type: 'button', className: 'dshApi-btn dshApi-btnSm', onClick: () => copyText(JSON.stringify((selectedLog.request && selectedLog.request.headers) || {}, null, 2)) }, t('logCopy'))
+                        ),
+                        h('pre', { className: 'dshApi-logPre' }, JSON.stringify((selectedLog.request && selectedLog.request.headers) || {}, null, 2))
+                      ),
+                      h('div', { className: 'dshApi-logBlock' },
+                        h('div', { className: 'dshApi-logBlockHead' },
+                          h('span', null, t('logBody')),
+                          h('button', { type: 'button', className: 'dshApi-btn dshApi-btnSm', onClick: () => copyText((selectedLog.request && selectedLog.request.body) || '') }, t('logCopy'))
+                        ),
+                        h('pre', { className: 'dshApi-logPre' }, (selectedLog.request && selectedLog.request.body) || t('logNoBody'))
+                      )
+                    )
+                  : h('div', { className: 'dshApi-logDetail' },
+                      h('div', { className: 'dshApi-logBlock' },
+                        h('div', { className: 'dshApi-logBlockHead' },
+                          h('span', null,
+                            t('logStatus') + ': ' + ((selectedLog.response && (selectedLog.response.status || selectedLog.response.error)) || '-') +
+                            (selectedLog.response && selectedLog.response.size != null ? '  ·  ' + t('size') + ': ' + selectedLog.response.size + 'B' : '')
+                          )
+                        ),
+                        h('pre', { className: 'dshApi-logPre' }, JSON.stringify((selectedLog.response && selectedLog.response.headers) || {}, null, 2))
+                      ),
+                      h('div', { className: 'dshApi-logBlock' },
+                        h('div', { className: 'dshApi-logBlockHead' },
+                          h('span', null, t('logRespBody')),
+                          h('button', { type: 'button', className: 'dshApi-btn dshApi-btnSm', onClick: () => copyText((selectedLog.response && selectedLog.response.body) || (selectedLog.response && selectedLog.response.error) || '') }, t('logCopy'))
+                        ),
+                        h('pre', { className: 'dshApi-logPre' }, (selectedLog.response && (selectedLog.response.body || selectedLog.response.error)) || t('logNoRespBody'))
+                      )
+                    ),
+                h('div', { className: 'dshApi-modalActions' },
+                  h('button', { type: 'button', className: 'dshApi-btn', onClick: () => setSelectedLog(null) }, t('close'))
+                )
+              )
+            )
+          : null
       )
     }
 
@@ -855,12 +1623,57 @@ window.__ModuleLoader__.load({
 .dshApi-btn:hover{border-color:var(--dsw-alias-brand-primary)}
 .dshApi-btn:disabled{opacity:.45;cursor:not-allowed}
 .dshApi-btnPrimary{background:#2ecc71;color:#0b0e13;border-color:transparent;font-weight:700}
+.dshApi-modalMask{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.45)}
+.dshApi-modal{width:min(620px,94vw);max-height:86vh;overflow-y:auto;background:var(--dsw-alias-bg-layer-1);border:1px solid var(--dsw-alias-border-l2);border-radius:12px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.3);display:flex;flex-direction:column;gap:12px}
+.dshApi-modalTitle{font-size:14px;font-weight:700;color:var(--dsw-alias-label-primary)}
+.dshApi-modalHint{font-size:11px;color:var(--dsw-alias-label-secondary);line-height:1.5}
+.dshApi-modal .dshApi-field{display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--dsw-alias-label-secondary)}
+.dshApi-modalRow{display:flex;gap:8px}
+.dshApi-modalRow .dshApi-input{flex:1 1 auto;min-width:0}
+.dshApi-swaggerJson{min-height:220px;font-family:ui-monospace,monospace}
+.dshApi-modalActions{display:flex;justify-content:flex-end;gap:8px}
+.dshApi-modalWide{width:min(760px,95vw);max-height:88vh;overflow-y:auto}
+.dshApi-modalMeta{font-size:11px;color:var(--dsw-alias-label-secondary)}
+.dshApi-logDetail{display:flex;flex-direction:column;gap:10px;min-height:0}
+.dshApi-logBlock{border:1px solid var(--dsw-alias-border-l1);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;max-height:260px}
+.dshApi-logBlockHead{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 9px;background:var(--dsw-alias-bg-layer-2);font-size:11px;font-weight:600;color:var(--dsw-alias-label-secondary)}
+.dshApi-logPre{margin:0;padding:9px;font-size:11px;line-height:1.5;font-family:ui-monospace,monospace;white-space:pre-wrap;word-break:break-all;overflow:auto;color:var(--dsw-alias-label-primary);background:var(--dsw-alias-bg-base)}
+.dshApi-logSearch{width:100%;box-sizing:border-box;margin-bottom:6px;font-size:11px;padding:5px 8px}
 .dshApi-btnSm{padding:4px 8px;font-size:11px}
 .dshApi-mini{border:0;background:transparent;color:var(--dsw-alias-label-secondary);cursor:pointer;font-size:13px;padding:0 4px;font-family:inherit}
 .dshApi-rows{display:flex;flex-direction:column;gap:4px}
 .dshApi-rowHead,.dshApi-row{display:grid;grid-template-columns:1fr 1fr 24px;gap:6px;align-items:center}
 .dshApi-rowHead{font-size:10px;color:var(--dsw-alias-label-secondary)}
 .dshApi-body{width:100%;box-sizing:border-box;min-height:120px;resize:vertical;padding:10px;border-radius:8px;border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-base);color:var(--dsw-alias-label-primary);font-family:ui-monospace,monospace;font-size:12px;outline:none}
+.dshApi-bodyWrap{display:flex;flex-direction:column;gap:10px;min-height:0;flex:1 1 auto}
+.dshApi-bodyModeBar{gap:4px;flex-wrap:wrap;padding:5px 6px;background:var(--dsw-alias-bg-layer-2);border-radius:8px}
+.dshApi-scriptWrap{display:flex;flex-direction:column;gap:8px;flex:1 1 auto;min-height:0}
+.dshApi-scriptHint{font-size:11px;line-height:1.5}
+.dshApi-script{width:100%;box-sizing:border-box;flex:1 1 auto;min-height:180px;resize:vertical;padding:10px;border-radius:8px;border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-base);color:var(--dsw-alias-label-primary);font-family:ui-monospace,monospace;font-size:12px;line-height:1.6;outline:none;tab-size:2}
+.dshApi-script:focus{border-color:var(--dsw-alias-brand-primary)}
+.dshApi-results{display:flex;flex-direction:column;gap:6px;overflow:auto}
+.dshApi-resultSummary{font-size:12px;font-weight:600;color:#2e7d32;padding:6px 9px;background:rgba(46,125,50,.08);border-radius:6px}
+.dshApi-resultFail{color:var(--dsw-alias-state-error-primary);background:rgba(216,44,32,.08)}
+.dshApi-resultRow{display:flex;align-items:flex-start;gap:8px;font-size:12px;padding:5px 8px;border-bottom:1px solid var(--dsw-alias-border-l1)}
+.dshApi-testPass{color:#2e7d32;font-weight:700}
+.dshApi-testFail{color:var(--dsw-alias-state-error-primary);font-weight:700}
+.dshApi-errSmall{font-size:11px;color:var(--dsw-alias-state-error-primary);word-break:break-all}
+.dshApi-bodyModeBar .dshApi-btn{border-color:transparent;background:transparent;font-size:11px;padding:5px 10px}
+.dshApi-bodyModeBar .dshApi-tabOn{background:var(--dsw-alias-bg-base);border-color:var(--dsw-alias-border-l2)}
+.dshApi-formRows{display:flex;flex-direction:column;gap:5px;overflow:auto}
+.dshApi-formRows .dshApi-row,.dshApi-formRows .dshApi-rowHead{grid-template-columns:minmax(100px,1fr) minmax(100px,1.2fr) 24px}
+.dshApi-formHead{padding:6px 9px;background:var(--dsw-alias-bg-layer-2);border-radius:6px;font-weight:600;letter-spacing:.3px}
+.dshApi-formRows .dshApi-row{padding:2px 0}
+.dshApi-formKey{display:flex;align-items:center;gap:5px;min-width:0}
+.dshApi-formKey .dshApi-input{flex:1 1 auto;min-width:0}
+.dshApi-typeChip{flex:0 0 auto;width:24px;height:26px;border:1px solid var(--dsw-alias-border-l2);border-radius:6px;background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-secondary);font-size:11px;cursor:pointer;font-family:inherit;padding:0}
+.dshApi-typeChipOn{background:var(--dsw-alias-brand-primary);color:#fff;border-color:transparent}
+.dshApi-filePick{text-align:left;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dshApi-rowType{max-width:110px}
+.dshApi-rawWrap{display:flex;flex-direction:column;gap:8px;flex:1 1 auto;min-height:0}
+.dshApi-fileBody{display:flex;align-items:center;gap:10px;padding:14px;border:1px dashed var(--dsw-alias-border-l2);border-radius:8px;background:var(--dsw-alias-bg-base)}
+.dshApi-fileInfo{font-size:11px;color:var(--dsw-alias-label-secondary);word-break:break-all}
+.dshApi-bodyWrap .dshApi-body{flex:1 1 auto;min-height:140px}
 .dshApi-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .dshApi-cardTitle{font-size:12px;font-weight:600;color:var(--dsw-alias-label-secondary)}
 .dshApi-metrics{display:flex;gap:8px;flex-wrap:wrap}
@@ -869,12 +1682,12 @@ window.__ModuleLoader__.load({
 .dshApi-err{font-size:11px;color:var(--dsw-alias-state-error-primary);padding:6px 8px;border-radius:7px;background:var(--dsw-alias-bg-layer-2)}
 .dshApi-cb{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--dsw-alias-label-secondary)}
 .dshApi-cb input{accent-color:var(--dsw-alias-brand-primary)}
-.dshApi-response{flex:1 1 auto;min-height:120px;max-height:100%;overflow:auto;margin:4px 0 0;padding:12px;border-radius:8px;background:var(--dsw-alias-bg-base);border:1px solid var(--dsw-alias-border-l1);font-family:ui-monospace,monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;word-break:break-all}
+.dshApi-respBody{display:flex;flex-direction:column;min-height:0;flex:1 1 auto;overflow:hidden}
+.dshApi-response{flex:0 1 auto;min-height:120px;max-height:calc(100vh - 320px);overflow-y:auto;overflow-x:auto;margin:4px 0 0;padding:12px;border-radius:8px;background:var(--dsw-alias-bg-base);border:1px solid var(--dsw-alias-border-l1);font-family:ui-monospace,monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;word-break:break-all}
 .dshApi-headers{display:flex;flex-direction:column;gap:4px;font-size:11px;max-height:240px;overflow:auto}
 .dshApi-hrow{padding:4px 6px;border-radius:6px;background:var(--dsw-alias-bg-base);word-break:break-all}
 .dshApi-note{font-size:12px;color:var(--dsw-alias-label-secondary);padding:8px}
 .dshApi-center{flex:1 1 auto;display:flex;align-items:center;justify-content:center;text-align:center}
-.dshApi-foot{font-size:11px;color:var(--dsw-alias-label-secondary);flex:0 0 auto}
 .dshApi-envBar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;flex:0 0 auto;padding:7px 11px;border-radius:8px;background:var(--dsw-alias-bg-layer-2)}
 .dshApi-envIcon{color:#9b59b6;font-size:14px}
 .dshApi-envVars{color:var(--dsw-alias-label-secondary);font-size:10.5px;flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

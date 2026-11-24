@@ -59,8 +59,15 @@ export function apply(ctx) {
           }
         }
         const init = { method, headers, signal: controller.signal, redirect: 'follow' }
-        if (!['GET', 'HEAD'].includes(method) && body.body && String(body.body).length) {
-          init.body = String(body.body)
+        if (!['GET', 'HEAD'].includes(method)) {
+          // Binary file upload: decode base64 into a Buffer and send as-is.
+          if (body.bodyBase64 && typeof body.bodyBase64 === 'string') {
+            const comma = body.bodyBase64.indexOf(',')
+            const raw = comma >= 0 ? body.bodyBase64.slice(comma + 1) : body.bodyBase64
+            init.body = Buffer.from(raw, 'base64')
+          } else if (body.body && String(body.body).length) {
+            init.body = String(body.body)
+          }
         }
         let res
         try { res = await fetch(url, init) }
