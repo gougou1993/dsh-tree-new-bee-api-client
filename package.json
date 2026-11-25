@@ -1,6 +1,6 @@
 {
   "name": "@oakzhong/dsh-tree-new-bee-api-client",
-  "version": "1.3.1",
+  "version": "1.3.3",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -44,6 +44,9 @@
     "dsh",
     "dsh-plugin",
     "deepseek-harness",
-    "deepseek"
-  ]
+    "deepseek",
+    "API",
+    "HTTP"
+  ],
+  "license": "MIT"
 }

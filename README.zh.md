@@ -11,7 +11,7 @@
 | 字段 | 值 |
 | --- | --- |
 | 包名 | `@oakzhong/dsh-tree-new-bee-api-client` |
-| 版本 | `1.3.1` |
+| 版本 | `1.3.3` |
 | 入口 | `index.js`（宿主）· `client.js`（客户端） |
 | 类型 | DSH bundle 插件，ES 模块（`"type": "module"`、`"private": false`、公开发布） |
 | 侧边栏入口 | Tree New Bee 接口请求（左侧） |
