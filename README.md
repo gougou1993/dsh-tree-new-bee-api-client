@@ -11,7 +11,7 @@ Requests run on the Host via `fetch`; the client sends the method, URL, headers 
 | Field | Value |
 | --- | --- |
 | Package | `@oakzhong/dsh-tree-new-bee-api-client` |
-| Version | `1.3.0` |
+| Version | `1.3.1` |
 | Entry | `index.js` (Host) · `client.js` (Client) |
 | Type | DSH bundle plugin, ES module (`"type": "module"`, `"private": false`, public publish) |
 | Sidebar entry | Tree New Bee API Client (left sidebar) |
